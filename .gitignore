@@ -1,0 +1,13 @@
+# Keep source-level files and local editor state out of the public repository.
+/Individual level data.csv
+/Individual level data.xlsx
+/Project data.xlsx
+/.Rhistory
+/.RData
+/*.docx
+/*.pptx
+
+# renv-managed package library is recreated from renv.lock.
+/renv/library/
+/renv/staging/
+/*.Rproj.user
