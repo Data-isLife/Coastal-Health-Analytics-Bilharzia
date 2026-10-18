@@ -131,13 +131,13 @@ ui <- page_navbar(
       card(card_header("Data coverage"), tableOutput("coverage_table"))
     ),
     card(card_header("Interpretation and API information"),
-      p("This app uses a local CSV and requires no API key or external data API. In Posit Cloud, upload the CSV files into the same project folder as app.R."),
+      p("This app uses a local CSV and requires no API key or external data API."),
       p("Project data.csv contains the bilharzia outcome anyshito. Other disease types are not available in this cleaned file, so the app does not infer or display them."),
       p("Water and toilet categories are shown as recorded because a coding dictionary was not included. Descriptive differences do not establish cause and effect."))
   ),
   nav_panel("Downloads", value = "downloads",
     card(card_header("Project documents"),
-      p("Files added to the downloads folder are listed here for users to download."),
+      p("Files added to the downloads are listed here for users to download."),
       uiOutput("document_downloads"))
   )
 )
