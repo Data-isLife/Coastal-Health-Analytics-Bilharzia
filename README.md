@@ -43,13 +43,9 @@ The report also describes the correlation between the proportion of males and pr
 
 The cleaned file contains the bilharzia outcome `anyshito`; it does not provide separate disease outcomes. Gender is standardized in the app to **Male** and **Female**. The map shows the six coastal counties using bundled county boundary data and sub-county coordinates from `Project data.csv`. It works without map tiles, an API key, or a live map service. Its points should not be read as ward- or village-level locations. Boundary source and license details are included in `BOUNDARY_DATA_LICENSE.txt`; the source project is [keAdminBounds](https://github.com/r115/keAdminBounds).
 
-## Run and deploy to Posit Connect Cloud
-
-I can run the app in Posit Cloud as a development workspace, then deploy it to my [Data-isLife Connect Cloud space](https://connect.posit.cloud/data-islife). Connect Cloud supports Shiny for R deployments from GitHub, RStudio, Positron, VS Code, or the R console. Current instructions are in Posit's [Shiny for R deployment guide](https://docs.posit.co/connect-cloud/how-to/r/shiny-r.html).
-
 ### Prepare the project
 
-Keep these files together in the project directory:
+I Keep these files together in the project directory:
 
 - `app.R`
 - `Project data.csv`
@@ -67,30 +63,8 @@ install.packages(c("shiny", "bslib", "bsicons", "dplyr", "ggplot2", "plotly", "D
 renv::snapshot()
 ```
 
-I should keep the resulting `renv.lock` beside `app.R` and include it when I deploy. Connect Cloud requires a `renv.lock` or `manifest.json` for GitHub-based R deployments; its IDE workflow uses `renv.lock`. See Posit's [R dependency guide](https://docs.posit.co/connect-cloud/how-to/r/dependencies.html).
+I shall keep the resulting `renv.lock` beside `app.R` and include it when I deploy. Connect Cloud requires a `renv.lock` or `manifest.json` for GitHub-based R deployments; its IDE workflow uses `renv.lock`. See Posit's [R dependency guide](https://docs.posit.co/connect-cloud/how-to/r/dependencies.html).
 
-### Deploy from VS Code
-
-1. Install Posit's **Posit Publisher** extension in VS Code.
-2. Open this project folder and connect the extension to my Connect Cloud account.
-3. Create a deployment, select `app.R` as the primary file, and check that `Project data.csv`, `renv.lock`, and any intended downloads are included in the project files.
-4. Deploy to the Data-isLife Connect Cloud account and open the resulting app link.
-
-I can also deploy through GitHub by committing the app, data, dependency lock file, and any public download files, then selecting the repository and `app.R` in Connect Cloud. On a free Connect Cloud account, GitHub-based deployments require a public repository, so I should not use that route for private or sensitive data. The deployment guide describes other options.
-
-## Add documents for users to download
-
-The app has a **Downloads** page. To add a document:
-
-1. Put the file in the project's `downloads/` folder. The app lists PDF, Word (`.docx`), PowerPoint (`.pptx`), Excel (`.xlsx`), CSV, and text (`.txt`) files found there.
-2. Include the file in the deployment. For GitHub, commit and push it. For VS Code/Posit Publisher, ensure it is selected in the project files list.
-3. Redeploy the app. The file will then appear as a download button on the **Downloads** page.
-
-I should only put files in this folder that I intend app users to access. The project report and presentation contain author and supervisor details, so I should not add them unless I want those details distributed with the app.
-
-## API keys
-
-The current app needs **no API key**. The cleaned data and county boundary map are bundled as local files, so no map tiles or live map service are called. If I later connect an external service that requires an API key, I should obtain the key from that service's developer account, then add it in Connect Cloud under the app's **Content Settings → Variables**. In R, I can read it with `Sys.getenv("MY_SERVICE_API_KEY")`. I should never put a real key in `app.R` or commit it to GitHub. See Posit's [secret-variable instructions](https://docs.posit.co/connect-cloud/user/publish/github.html).
 
 ## Limitations and next steps
 
