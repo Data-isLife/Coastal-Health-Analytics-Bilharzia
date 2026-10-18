@@ -73,3 +73,6 @@ I shall keep the resulting `renv.lock` beside `app.R` and include it when I depl
 - The spatial analysis uses sub-county points. Ward boundary data would support finer mapping.
 - I should reconcile the 26,188 report sample with the 26,118 records in the current cleaned CSV before presenting both as final.
 - Future work could add ward-level spatial models, evaluate intervention costs, and study local barriers to toilet access.
+
+## Live link
+https://data-islife-coastal-health-analytics.share.connect.posit.cloud/
